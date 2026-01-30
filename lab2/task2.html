@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice: Customer's Copy</title>
+    <style>
+        body {
+            font-family: serif;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 2px solid black;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: left;
+        }
+        .center {
+            text-align: center;
+        }
+        .right {
+            text-align: right;
+        }
+        .bold {
+            font-weight: bold;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Invoice: Customer's Copy</h1>
+    
+    <table>
+        <tr>
+            <td class="bold">Invoice #7832973929</td>
+            <td class="bold">22 September 2022</td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Pay to:</strong><br>
+                Concordia 1 Mart<br>
+                Nust, H-12 Campus<br>
+                Islamabad, Pakistn, 44000
+            </td>
+            <td>
+                <strong>Customer:</strong><br>
+                Muhammad Sikandar Hussain<br>
+                Hejveri Hostel, Nust H-12 Campus<br>
+                Islamabad, Pakistn, 44000
+            </td>
+        </tr>
+    </table>
+    
+    <table style="margin-top: 10px;">
+        <tr>
+            <th><strong>Name / Description</strong></th>
+            <th class="center"><strong>Qty.</strong></th>
+            <th class="center"><strong>@</strong></th>
+            <th class="right"><strong>Cost</strong></th>
+        </tr>
+        <tr>
+            <td>Ice Cream</td>
+            <td class="center">1</td>
+            <td class="center">200</td>
+            <td class="right">200.00</td>
+        </tr>
+        <tr>
+            <td>Cold Drink</td>
+            <td class="center">1</td>
+            <td class="center">90.00</td>
+            <td class="right">90.00</td>
+        </tr>
+        <tr>
+            <td colspan="3" class="right bold">Subtotal</td>
+            <td class="right">290.00</td>
+        </tr>
+        <tr>
+            <td colspan="2" class="right bold">Tax</td>
+            <td class="center">8%</td>
+            <td class="right">8.80</td>
+        </tr>
+        <tr>
+            <td colspan="3" class="right bold">Grand Total</td>
+            <td class="right"><strong>Rs 313.80</strong></td>
+        </tr>
+    </table>
+</body>
+</html>
