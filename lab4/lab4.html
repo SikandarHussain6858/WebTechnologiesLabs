@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Positioning Lab</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Task 1: Fixed Header -->
+    <header class="fixed-header">
+        <h1>Sikandar Hussain - My Portfolio</h1>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <section class="intro">
+            <h2>Welcome to My Portfolio</h2>
+            <p>this is basically the demonstration of lab5 tasks in which there are multiple CSS positioning techniques demonstrated.</p>
+        </section>
+
+        <!-- Task 2 & 3 & 4: Image Gallery with Hover Overlay and Corner Badge -->
+        <section class="gallery-section">
+            <h2>Image Gallery</h2>
+            
+            <div class="gallery-container">
+                <!-- Image Card 1 -->
+                <div class="image-card">
+                    <div class="badge">NEW</div>
+                    <img src="austin-chan-ukzHlkoz1IE-unsplash.jpg" alt="Gallery Image 1">
+                    <div class="overlay">
+                        <p class="overlay-text">Image 1</p>
+                    </div>
+                </div>
+
+                <!-- Image Card 2 -->
+                <div class="image-card">
+                    <img src="david-kovalenko-G85VuTpw6jg-unsplash.jpg" alt="Gallery Image 2">
+                    <div class="overlay">
+                        <p class="overlay-text">Image 2</p>
+                    </div>
+                </div>
+
+                <!-- Image Card 3 -->
+                <div class="image-card">
+                    <img src="ian-dooley-hpTH5b6mo2s-unsplash.jpg" alt="Gallery Image 3">
+                    <div class="overlay">
+                        <p class="overlay-text">Image 3</p>
+                    </div>
+                </div>
+
+                <!-- Image Card 4 -->
+                <div class="image-card">
+                    <img src="laura-vinck-Hyu76loQLdk-unsplash.jpg" alt="Gallery Image 4">
+                    <div class="overlay">
+                        <p class="overlay-text">Image 4</p>
+                    </div>
+                </div>
+
+                <!-- Image Card 5 -->
+                <div class="image-card">
+                    <img src="tirza-van-dijk-cNGUw-CEsp0-unsplash.jpg" alt="Gallery Image 5">
+                    <div class="overlay">
+                        <p class="overlay-text">Image 5</p>
+                    </div>
+                </div>
+
+                <!-- Image Card 6 -->
+                <div class="image-card">
+                    <img src="diego-ph-fIq0tET6llw-unsplash.jpg" alt="Gallery Image 6">
+                    <div class="overlay">
+                        <p class="overlay-text">Image 6</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Task 6: Relative Position Demonstration -->
+        <section class="relative-demo">
+            <h2>Relative Positioning Demonstration</h2>
+            <p>Notice how the caption below moves upward but leaves its original space behind:</p>
+            
+            <div class="demo-container">
+                <p class="normal-text">This is normal text flow.</p>
+                <p class="relative-caption">This caption is moved up using position: relative and top: -20px</p>
+                <p class="normal-text">This text appears where it would normally be, showing the space is still reserved above.</p>
+            </div>
+        </section>
+
+        <!-- Extra content to enable scrolling -->
+        <section class="extra-content">
+            <h2>About This Project</h2>
+            <p>This webpage demonstrates fundamental CSS positioning concepts without using modern layout techniques like Flexbox or Grid.</p>
+            <p>The techniques used include:</p>
+            <ul>
+                <li><strong>Fixed positioning:</strong> Header and back-to-top button</li>
+                <li><strong>Absolute positioning:</strong> Image overlays and corner badges</li>
+                <li><strong>Relative positioning:</strong> Caption offset demonstration</li>
+                <li><strong>Float layout:</strong> Image gallery arrangement</li>
+            </ul>
+            
+            <h3>Additional Information</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            
+            <h3>More Content</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </section>
+    </main>
+
+    <!-- Task 5: Back-to-Top Button -->
+    <a href="#" class="back-to-top">↑</a>
+</body>
+</html>
