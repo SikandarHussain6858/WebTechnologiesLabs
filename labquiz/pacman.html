@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pacman Animation</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #222;
+        }
+        .track {
+            position: relative;
+            width: 400px;
+            height: 80px;
+            background: #111;
+            border: 2px solid #333;
+            border-radius: 40px;
+            overflow: hidden;
+        }
+
+        .pacman {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            z-index: 2;
+            animation: movePacman 3s linear infinite;
+        }
+
+        .pacman-top {
+            position: absolute;
+            width: 50px;
+            height: 25px;
+            background: #ffff00;
+            border-radius: 25px 25px 0 0;
+            transform-origin: bottom center;
+            animation: chompTop 0.3s ease-in-out infinite;
+        }
+
+        .pacman-bottom {
+            position: absolute;
+            top: 25px;
+            width: 50px;
+            height: 25px;
+            background: #ffff00;
+            border-radius: 0 0 25px 25px;
+            transform-origin: top center;
+            animation: chompBottom 0.3s ease-in-out infinite;
+        }
+
+        .pacman-eye {
+            position: absolute;
+            width: 7px;
+            height: 7px;
+            background: #000;
+            border-radius: 50%;
+            top: 8px;
+            left: 28px;
+            z-index: 3;
+        }
+
+        @keyframes chompTop {
+            0%, 100% { transform: rotate(0deg); }
+            50%      { transform: rotate(-25deg); }
+        }
+        @keyframes chompBottom {
+            0%, 100% { transform: rotate(0deg); }
+            50%      { transform: rotate(25deg); }
+        }
+
+        @keyframes movePacman {
+            0%   { left: 12px; }
+            45%  { left: 300px; }
+            50%  { left: 300px; }
+            100% { left: 12px; }
+        }
+
+        .dot {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background: #fff;
+            border-radius: 50%;
+            top: 50%;
+            left: 300px;
+            transform: translateY(-50%);
+            animation: dotVisibility 3s linear infinite;
+        }
+
+        @keyframes dotVisibility {
+            0%   { opacity: 1; }
+            44%  { opacity: 1; }
+            45%  { opacity: 0; }
+            99%  { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="track">
+        <div class="pacman">
+            <div class="pacman-top"></div>
+            <div class="pacman-bottom"></div>
+            <div class="pacman-eye"></div>
+        </div>
+
+        <div class="dot"></div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body { display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background: #222; }
+        .calc { width: 260px; background: #333; padding: 12px; border-radius: 8px; }
+        input { width: 100%; height: 45px; font-size: 20px; text-align: right; padding: 5px 8px; margin-bottom: 8px; border: 1px solid #555; background: #fff; }
+        .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+        button { height: 45px; font-size: 18px; border: 1px solid #555; background: #ddd; cursor: pointer; border-radius: 4px; }
+        button:hover { background: #ccc; }
+    </style>
+</head>
+<body>
+    <div class="calc">
+        <input id="display" type="text" readonly />
+        <div class="grid">
+            <button onclick="d.value=''">C</button>
+            <button onclick="d.value+='/'">/</button>
+            <button onclick="d.value+='*'">x</button>
+            <button onclick="d.value+='-'">-</button>
+            <button onclick="d.value+='7'">7</button>
+            <button onclick="d.value+='8'">8</button>
+            <button onclick="d.value+='9'">9</button>
+            <button onclick="d.value+='+'">+</button>
+            <button onclick="d.value+='4'">4</button>
+            <button onclick="d.value+='5'">5</button>
+            <button onclick="d.value+='6'">6</button>
+            <button onclick="d.value+='.'">.</button>
+            <button onclick="d.value+='1'">1</button>
+            <button onclick="d.value+='2'">2</button>
+            <button onclick="d.value+='3'">3</button>
+            <button onclick="d.value+='0'">0</button>
+            <button onclick="try{d.value=eval(d.value)}catch(e){d.value='Error'}">=</button>
+        </div>
+    </div>
+    <script>
+        var d = document.getElementById('display');
+    </script>
+</body>
+</html>

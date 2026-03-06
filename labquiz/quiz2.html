@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Quiz 2</title>
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.target {
+    font-size: 24px;
+    margin: 10px 0;
+    color: #0ff;
+}
+
+.target span {
+    color: #ff0;
+    font-weight: bold;
+}
+
+.track {
+    position: relative;
+    width: 550px;
+    height: 70px;
+    background: #111;
+    border: 2px solid #333;
+    border-radius: 35px;
+    margin: 15px 0;
+    overflow: hidden;
+}
+
+.pacman {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 45px;
+    height: 45px;
+    z-index: 2;
+    transition: left 0.5s;
+}
+
+.jaw-top {
+    position: absolute;
+    width: 45px;
+    height: 22.5px;
+    background: #ff0;
+    border-radius: 22.5px 22.5px 0 0;
+    transform-origin: bottom;
+    animation: jt 0.3s infinite;
+}
+
+.jaw-bot {
+    position: absolute;
+    top: 22.5px;
+    width: 45px;
+    height: 22.5px;
+    background: #ff0;
+    border-radius: 0 0 22.5px 22.5px;
+    transform-origin: top;
+    animation: jb 0.3s infinite;
+}
+
+.eye {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #000;
+    border-radius: 50%;
+    top: 7px;
+    left: 24px;
+    z-index: 3;
+}
+
+@keyframes jt {
+    0%, 100% { transform: rotate(0); }
+    50%      { transform: rotate(-22deg); }
+}
+
+@keyframes jb {
+    0%, 100% { transform: rotate(0); }
+    50%      { transform: rotate(22deg); }
+}
+
+.dot {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background: #fff;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.dot.eaten {
+    opacity: 0;
+    transform: translateY(-50%) scale(0);
+}
+
+.dot:nth-child(3)  { left: 90px; }
+.dot:nth-child(4)  { left: 150px; }
+.dot:nth-child(5)  { left: 210px; }
+.dot:nth-child(6)  { left: 270px; }
+.dot:nth-child(7)  { left: 330px; }
+.dot:nth-child(8)  { left: 390px; }
+.dot:nth-child(9)  { left: 450px; }
+.dot:nth-child(10) { left: 510px; }
+
+.calc {
+    width: 240px;
+    background: #333;
+    padding: 10px;
+    border-radius: 6px;
+    margin-top: 10px;
+}
+
+.calc input {
+    width: 100%;
+    height: 40px;
+    font-size: 18px;
+    text-align: right;
+    padding: 4px 8px;
+    border: 1px solid #555;
+    background: #fff;
+    margin-bottom: 6px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+}
+
+.grid button {
+    height: 40px;
+    font-size: 16px;
+    border: 1px solid #555;
+    background: #ddd;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.grid button:hover {
+    background: #bbb;
+}
+
+.msg {
+    margin-top: 12px;
+    font-size: 18px;
+    min-height: 24px;
+    color: #0f0;
+}
+
+.msg.wrong {
+    color: #f44;
+}
+
+.msg.win {
+    color: #ff0;
+    font-size: 22px;
+}
+</style>
+</head>
+<body>
+<div class="target">Target = <span id="tgt">25</span></div>
+<div class="track">
+<div class="pacman" id="pac"><div class="jaw-top"></div><div class="jaw-bot"></div><div class="eye"></div></div>
+<div class="dot" id="d1"></div>
+<div class="dot" id="d2"></div>
+<div class="dot" id="d3"></div>
+<div class="dot" id="d4"></div>
+<div class="dot" id="d5"></div>
+<div class="dot" id="d6"></div>
+<div class="dot" id="d7"></div>
+<div class="dot" id="d8"></div>
+</div>
+<div class="calc">
+<input id="dis" type="text" readonly>
+<div class="grid">
+<button onclick="a('7')">7</button><button onclick="a('8')">8</button><button onclick="a('9')">9</button><button onclick="a('/')">/</button>
+<button onclick="a('4')">4</button><button onclick="a('5')">5</button><button onclick="a('6')">6</button><button onclick="a('*')">x</button>
+<button onclick="a('1')">1</button><button onclick="a('2')">2</button><button onclick="a('3')">3</button><button onclick="a('-')">-</button>
+<button onclick="a('0')">0</button><button onclick="a('.')">.</button><button onclick="eq()">=</button><button onclick="a('+')">+</button>
+<button onclick="dis.value=''">C</button>
+</div>
+</div>
+<div class="msg" id="msg"></div>
+<script>
+var dis=document.getElementById('dis'),T=25,eaten=0,pos=[90,150,210,270,330,390,450,510];
+function a(v){dis.value+=v}
+function eq(){
+try{
+var r=eval(dis.value);
+dis.value=r;
+if(r===T&&eaten<8){
+document.getElementById('d'+(eaten+1)).classList.add('eaten');
+document.getElementById('pac').style.left=pos[eaten]+'px';
+eaten++;
+msg.className=eaten>=8?'msg win':'msg';
+msg.textContent=eaten>=8?'ALL DOTS EATEN! YOU WIN!':'Correct! '+eaten+'/8 dots eaten';
+}else if(r!==T){
+msg.className='msg wrong';
+msg.textContent='Result is '+r+', not '+T;
+}
+}catch(e){dis.value='Error'}
+}
+</script>
+</body>
+</html>
