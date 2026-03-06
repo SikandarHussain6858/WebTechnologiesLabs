@@ -78,13 +78,15 @@
         <!-- Task 6: Relative Position Demonstration -->
         <section class="relative-demo">
             <h2>Relative Positioning Demonstration</h2>
-            <p>Notice how the caption below moves upward but leaves its original space behind:</p>
+            <p><strong>Key Concept:</strong> When using <code>position: relative</code> with the <code>top</code> property, the element visually moves but its original space in the document flow is still reserved.</p>
             
             <div class="demo-container">
-                <p class="normal-text">This is normal text flow.</p>
-                <p class="relative-caption">This caption is moved up using position: relative and top: -20px</p>
-                <p class="normal-text">This text appears where it would normally be, showing the space is still reserved above.</p>
+                <p class="normal-text">1️⃣ This is the first normal text block (position: static)</p>
+                <p class="relative-caption">2️⃣ This caption uses position: relative with top: -30px — Notice it moves UP but the gap below shows its reserved space!</p>
+                <p class="normal-text">3️⃣ This third text block stays in its normal position, but there's a gap above it because the red caption's original space is still reserved in the document flow.</p>
             </div>
+            
+            <p style="margin-top: 20px;"><strong>Observation:</strong> The red caption appears to overlap the first text block, but the space where it <em>would have been</em> (between blocks 1 and 3) remains empty. This is the key difference between <code>position: relative</code> and <code>position: absolute</code>.</p>
         </section>
 
         <!-- Extra content to enable scrolling -->

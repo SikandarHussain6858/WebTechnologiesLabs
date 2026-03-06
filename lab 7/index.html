@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css">
+
+  <title>Lab 7 Calculator</title>
+ 
+</head>
+<body>
+  <div class="calculator">
+    <input id="inputTextField" class="display" type="text" readonly />
+
+    <div class="grid">
+      <!-- Row 1: MC  0  1  2  + -->
+      <button onclick="memoryClear()">MC</button>
+      <button onclick="appendSymbol('0')">0</button>
+      <button onclick="appendSymbol('1')">1</button>
+      <button onclick="appendSymbol('2')">2</button>
+      <button onclick="appendSymbol('+')">+</button>
+
+      <!-- Row 2: MS  3  4  5  - -->
+      <button onclick="memoryStore()">MS</button>
+      <button onclick="appendSymbol('3')">3</button>
+      <button onclick="appendSymbol('4')">4</button>
+      <button onclick="appendSymbol('5')">5</button>
+      <button onclick="appendSymbol('-')">-</button>
+
+      <!-- Row 3: MR  6  7  8  x -->
+      <button onclick="memoryRecall()">MR</button>
+      <button onclick="appendSymbol('6')">6</button>
+      <button onclick="appendSymbol('7')">7</button>
+      <button onclick="appendSymbol('8')">8</button>
+      <button onclick="appendSymbol('*')">x</button>
+
+      <!-- Row 4: M+  9  ±  =  / -->
+      <button onclick="memoryAdd()">M+</button>
+      <button onclick="appendSymbol('9')">9</button>
+      <button onclick="toggleSign()">&plusmn;</button>
+      <button onclick="calculateResult()">=</button>
+      <button onclick="appendSymbol('/')">/</button>
+
+      <!-- Row 5: 1/x  .  x2  √  C -->
+      <button onclick="oneByX()">1/x</button>
+      <button onclick="appendDecimal()">.</button>
+      <button onclick="squareValue()">x2</button>
+      <button onclick="squareRoot()">&radic;</button>
+      <button onclick="clearAll()">C</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
