@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task Quest</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app" id="app">
+    <header class="topbar">
+      <h1>Task Quest</h1>
+      <button id="modeToggle" class="btn ghost" aria-label="Toggle mode">Calm</button>
+    </header>
+
+    <section class="composer card">
+      <input id="taskInput" type="text" placeholder="Add a task" maxlength="120" />
+      <button id="addBtn" class="btn primary" aria-label="Add task">+</button>
+    </section>
+
+    <section class="controls card">
+      <div class="filters">
+        <button class="btn filter active" data-filter="all">All</button>
+        <button class="btn filter" data-filter="active">Active</button>
+        <button class="btn filter" data-filter="done">Done</button>
+      </div>
+      <div class="actions">
+        <button id="sortBtn" class="btn ghost">Sort</button>
+        <button id="clearDoneBtn" class="btn ghost">Clear Done</button>
+      </div>
+    </section>
+
+    <section class="stats card">
+      <div class="meter-wrap">
+        <div class="meter" id="progressMeter"></div>
+      </div>
+      <div class="stat-row">
+        <span>XP <strong id="xpValue">0</strong></span>
+        <span>Lv <strong id="levelValue">1</strong></span>
+        <span>Streak <strong id="streakValue">0</strong></span>
+      </div>
+      <div id="badgeBar" class="badges" aria-live="polite"></div>
+    </section>
+
+    <ul id="taskList" class="task-list card" aria-live="polite"></ul>
+
+    <p id="emptyState" class="empty">No tasks yet.</p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
